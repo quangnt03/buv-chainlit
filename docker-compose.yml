@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: postgres_pgvector
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.data/pg:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myuser
+      MONGO_INITDB_ROOT_PASSWORD: mypassword
+      MONGO_INITDB_DATABASE: mydatabase
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./.data/mongo_data:/data/db
+
+volumes:
+  postgres_data:
+
+  mongo_data:

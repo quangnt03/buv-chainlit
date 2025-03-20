@@ -17,3 +17,4 @@
 .gitignore
 .dockerignore
 Dockerfile
+.chainlit
